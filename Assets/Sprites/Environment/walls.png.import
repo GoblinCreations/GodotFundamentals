@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mws1obbej710"
-path="res://.godot/imported/pickups.png-f876f2075f2b681bd4e62cc8a354ed6d.ctex"
+uid="uid://x81qbhvqr1pv"
+path="res://.godot/imported/walls.png-3ac6851daea195fe0d70a1b154230372.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/World/pickups.png"
-dest_files=["res://.godot/imported/pickups.png-f876f2075f2b681bd4e62cc8a354ed6d.ctex"]
+source_file="res://Assets/Sprites/Environment/walls.png"
+dest_files=["res://.godot/imported/walls.png-3ac6851daea195fe0d70a1b154230372.ctex"]
 
 [params]
 

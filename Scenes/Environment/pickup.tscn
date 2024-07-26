@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://5bpn05fp44ea"]
+
+[ext_resource type="Texture2D" uid="uid://mws1obbej710" path="res://Assets/Sprites/Environment/pickups.png" id="1_efg2f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eerih"]
+size = Vector2(8, 8)
+
+[node name="Pickup" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_efg2f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eerih")
