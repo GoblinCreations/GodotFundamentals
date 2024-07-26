@@ -13,7 +13,7 @@ const ROTATE_SPEED = 20
 var direction = Vector2.RIGHT
 
 func _physics_process(delta):
-	var input_direction = Input.get_vector("turn_left", "turn_right", "move_forward", "move_backward")
+	var input_direction = Input.get_vector("turn_left", "turn_right", "move_backward", "move_forward")
 	if input_direction.x != 0:
 		#rotate the tank based on the input vector
 		direction = direction.rotated(input_direction.x * (PI / 2) * TURN_SPEED * delta)
