@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://e65oygxevxbe"]
+
+[ext_resource type="Texture2D" uid="uid://x5p1kmam8msk" path="res://Assets/Tank/tank_body.png" id="1_41u8i"]
+[ext_resource type="Script" path="res://Scripts/Tank/tank.gd" id="1_kwoqd"]
+[ext_resource type="PackedScene" uid="uid://cbsbfajeh0mjn" path="res://Scenes/Tank/weapon.tscn" id="2_c8t7n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7q4hx"]
+size = Vector2(24, 18)
+
+[sub_resource type="Animation" id="Animation_otql7"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6haf3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_uohq0"]
+resource_name = "Move"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pmjir"]
+_data = {
+"Idle": SubResource("Animation_otql7"),
+"Move": SubResource("Animation_uohq0"),
+"RESET": SubResource("Animation_6haf3")
+}
+
+[node name="Tank" type="CharacterBody2D" node_paths=PackedStringArray("weapon")]
+script = ExtResource("1_kwoqd")
+weapon = NodePath("Weapon")
+
+[node name="BodySprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_41u8i")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7q4hx")
+
+[node name="Weapon" parent="." instance=ExtResource("2_c8t7n")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pmjir")
+}
